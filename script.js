@@ -7,6 +7,7 @@ const scenes = {
         choices: ["Starta äventyret"],
         nextScene: ["mountain"]
     },
+
     mountain: {
         description: "Du befinner dig på en bergstopp, skrika eller gå neråt. Skriv in skrik eller gå neråt",
         choices: ["skrik", "gå neråt"],
@@ -43,12 +44,12 @@ window.onload = presentScene;
 
 document.getElementById("sub-button").onclick = function() {
     const name = document.getElementById("myInput").value;
-    console.log(name);
     const updatedDescription = scenes.startingScene.description.replace("NAME", name)
     scenes.startingScene.description = updatedDescription
     presentScene();
     const form = document.getElementById("nameForm") 
     form.remove();
+    
 }
 
 function presentScene() {
@@ -77,18 +78,17 @@ function createChoices(scene) {
 }
 
 function createButton(choice, nextScene, container) {
+
     const button = document.createElement('button'); 
     button.innerText = choice, nextScene;
     button.onclick = function() {
-        handleUserChoice(nextScene);
-        
+        handleUserChoice(nextScene); 
     }
     container.append(button);
 }
 
 function handleUserChoice(nextScene) {
     
-    console.log("Hej")
     currentSceneName = nextScene;
     presentScene();
 }
