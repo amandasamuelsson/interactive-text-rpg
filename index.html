@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="./style.css">
     <script defer src="./script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
     <body>
-
-        <form id="nameForm">
-            <p>Skriv in ditt namn:</p>
-            <input type="text" placeholder="Type something..." id="myInput">
-            <button type="button" id="sub-button" onclick="submitName();">Get Value</button>
-        </form>
-
-        <p id="description">
-            <!-- Code injected from JavaScript -->
-        </p>
-
-        <div id="choices-container">
-            <!-- Code injected from JavaScript -->
-        </div>  
-
+        <div class="gameDiv">
+            <form id="nameForm">
+                <input type="text" placeholder="Skriv in ditt namn" id="myInput">
+                <button type="button" id="sub-button" class="sub-button" onclick="submitName();">Klar</button>
+            </form>
+            
+            <p id="description">
+                <!-- Code injected from JavaScript -->
+            </p>
+            <img src="" alt="">
+            <div id="choices-container">
+                <!-- Code injected from JavaScript -->
+            </div>  
+        </div>
     </body>
 </html>

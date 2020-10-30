@@ -1,0 +1,51 @@
+body {
+    margin: 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    background-color: #f4f2f2;
+
+}
+
+.gameDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2b3e68;
+    width: 70%;
+    padding: 2rem;
+}
+
+#description {
+    padding: 2rem;
+    margin: 0rem 4rem;
+}
+
+.sub-button {
+    color: #ffffff;
+    background-color: #333333;
+    border: none;
+    padding: 0.2rem 0.5rem;
+    width: 2.5rem;
+}
+
+.sub-button:hover {
+    background-color: #444444;
+}
+
+button {
+    background-color: lightblue;
+    color: #222222;
+    padding: 0.5rem;
+    border: 1px;
+    border-radius: 4%;
+    margin: 1rem;
+    width: 7rem;
+}
+
+button:hover {
+    background-color: rgb(201, 236, 248) ;
+}
