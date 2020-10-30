@@ -25,7 +25,7 @@ const scenes = {
         choices: ["Ja", "Nej"],
         nextScene: ["mountain", "endGame"]
     },
-    
+
     hit: {
         description: "Du valde att slå, Gripen släpper taget. Du faller nu handlöst från hög höjd och störtar snabbt mot din död. Vill du börja om?",
         choices: ["Ja", "Nej"],
@@ -35,7 +35,7 @@ const scenes = {
     view: {
         description: "Gripen flyger vidare med dig i sina klor, efter ett tag börjar gripen flyga lägre och du ser en stad. Du känner igen staden från..",
         choices: ["..ett av dina tidigare äventyr", "..en berättelse du hört av Monika"],
-        nextScene: ["adventure", 1]
+        nextScene: ["adventure", "story"]
     },
 
     adventure: {
@@ -62,6 +62,29 @@ const scenes = {
         nextScene: ["mountain", "endGame"]
     },
 
+    story: {
+        description: "Gripen ger ifrån sig ett skrik och flyger allt lägre, på några meters höjd släpper gripen dig och du ramlar ner på marken. Du reser dig upp och befinner dig utanför stadsmuren.",
+        choices: ["Gå in i staden", "Vänd och gå bort från staden"],
+        nextScene: ["inToTheCity", "leaveCity"]
+    },
+
+    inToTheCity: {
+        description: "Du går in i staden. Du möts av en dyster syn.. Det är mörkt och smutsigt, inga människor syns till.",
+        choices: ["Fortsätt in i staden", "Vänd och gå bort från staden"],
+        nextScene: ["furtherInToTheCity", "leaveCity"]
+    },
+    
+    furtherInToTheCity: {
+        description: "Du fortsätter längre in i staden och ser en figur. Personen hör dig och vänder sig om. Det är den onda, mäktiga trollkarlen Bengt. Han skjuter en blixt och du dör. Vill du spela igen? ",
+        choices: ["Ja", "Nej"],
+        nextScene: ["mountain", "endGame"]
+    },
+
+    leaveCity: {
+        description: "Du vänder om och lämnar staden bakom dig. Du fortsätter bort och plötsligt får du en pil i bröstet. Du dog. Vill du spela igen?",
+        choices: ["Ja", "Nej"],
+        nextScene: ["mountain", "endGame"]
+    },
 
     endGame: {
         description: "Tack för att du spelat!",
@@ -104,7 +127,6 @@ function createChoices(scene) {
         const choice = scene.choices[i];
         const nextScene = scene.nextScene[i];
         createButton(choice, nextScene, container);
-
     }
 }
 
