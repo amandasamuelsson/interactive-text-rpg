@@ -1,7 +1,12 @@
-let currentSceneName = "mountain" 
+let currentSceneName = "startingScene" 
 
 const scenes = {
     
+    startingScene: {
+        description: "Hej och välkommen NAME. Du kommer nu få spela ett äventyr där du får göra ett antal val. Hur äventyret slutar bestämmer du!",
+        choices: ["Starta äventyret"],
+        nextScene: ["mountain"]
+    },
     mountain: {
         description: "Du befinner dig på en bergstopp, skrika eller gå neråt. Skriv in skrik eller gå neråt",
         choices: ["skrik", "gå neråt"],
@@ -36,21 +41,16 @@ const scenes = {
 window.onload = presentScene;
 
 
-// function submitName() {
-    //     alert ("Du kommer nu få spela ett äventyr där du själv kommer få göra ett antal val, hur äventyret slutar avgör du. Lycka till!");
-    //     let Name = prompt("Skriv in ditt namn");
-    //     while (Name === "") {
-        //     alert("Vänligen skriv in ditt namn")
-        //     let Name = prompt("Skriv in ditt namn");
-        //     } 
-        //     alert("Hej och välkommen " + Name);
-        //     alert("Du är en erfaren äventyrare och har varit på många, långa äventyr med dina vapendragare Tola Sparv och Monika Plöjer men nu vaknar du upp..")
-        // }
+document.getElementById("sub-button").onclick = function() {
+    const name = document.getElementById("myInput").value;
+    console.log(name);
+    const updatedDescription = scenes.startingScene.description.replace("NAME", name)
+    scenes.startingScene.description = updatedDescription
+    presentScene();
+    const form = document.getElementById("nameForm") 
+    form.remove();
+}
 
-// function submitName() {
-//     let name = 
-// }
-        
 function presentScene() {
     const scene = scenes[currentSceneName];
     updateDescription(scene);
@@ -67,7 +67,6 @@ function updateDescription(scene) {
 function createChoices(scene) {
     const container = document.getElementById('choices-container');
     container.innerText = "";
-    //container.innerText = scene.choices;
     
     for (let i = 0; i < scene.choices.length; i++) {
         const choice = scene.choices[i];
