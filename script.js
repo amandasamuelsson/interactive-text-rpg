@@ -1,5 +1,8 @@
 let currentSceneName = "startingScene" 
-
+/**
+ * These are the objects. The different scenes where information
+ * is caught from and displayed with functions. 
+ */
 const scenes = {
     
     startingScene: {
@@ -95,7 +98,11 @@ const scenes = {
 
 window.onload = presentScene;
 
-
+/**
+ * This function gets the name the user puts in input 
+ * and displays it in the first scene. 
+ * @param 
+ */
 document.getElementById("sub-button").onclick = function() {
     const name = document.getElementById("myInput").value;
     const updatedDescription = scenes.startingScene.description.replace("NAME", name)
@@ -105,20 +112,28 @@ document.getElementById("sub-button").onclick = function() {
     form.remove();
 
 }
-
+/**
+ * This function presents the scene 
+ * @param {string} scene - Gets the info from the objects in the list  
+ */
 function presentScene() {
     const scene = scenes[currentSceneName];
     updateDescription(scene);
     createChoices(scene);
     
 }
-        
+
+/**
+ * This function updates the description in every new scene
+ */
 function updateDescription(scene) {
     const descriptionTag = document.getElementById('description');
     descriptionTag.innerText = scene.description;
     
 }
-
+/**
+ * This function creates the choices for the user 
+ */
 function createChoices(scene) {
     const container = document.getElementById('choices-container');
     container.innerText = "";
@@ -129,7 +144,12 @@ function createChoices(scene) {
         createButton(choice, nextScene, container);
     }
 }
-
+/**
+ * This function creates the buttons for the different choices  
+ * @param {string} choice The different choices for the scene
+ * @param {string} nextScene The next scene depending on the user choice
+ * @param {string} container Container for the choices
+ */
 function createButton(choice, nextScene, container) {
 
     const button = document.createElement('button'); 
@@ -139,7 +159,9 @@ function createButton(choice, nextScene, container) {
     }
     container.append(button);
 }
-
+/**
+ * This function handles the users choice and calls the next scene
+ */
 function handleUserChoice(nextScene) {
     
     currentSceneName = nextScene;
